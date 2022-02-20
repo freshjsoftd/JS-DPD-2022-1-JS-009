@@ -45,22 +45,37 @@
 // }
 // console.log('foo is first', foo());
 
-function printFizzBuzz(n) {
-  let res;
-	for (let i = 0; i <= n; i++) {
-		if (i % 3 === 0 && i % 5 === 0) {
-			res = 'fizzbuzz';
-		}else
-		if (i % 3 === 0) {
-			res ='fizz';
-		}else
-		if (i % 5 === 0) {
-			res ='buzz';
-		}else{
-      res = i;
-    }
-    console.log(res);
-	}
-}
-printFizzBuzz(50);
+// function printFizzBuzz(n) {
+//   let res;
+// 	for (let i = 0; i <= n; i++) {
+// 		if (i % 3 === 0 && i % 5 === 0) {
+// 			res = 'fizzbuzz';
+// 		}else
+// 		if (i % 3 === 0) {
+// 			res ='fizz';
+// 		}else
+// 		if (i % 5 === 0) {
+// 			res ='buzz';
+// 		}else{
+//       res = i;
+//     }
+//     console.log(res);
+// 	}
+// }
+// printFizzBuzz(50);
+
+// let res = 0;
+// for (let i = 1; i < 20; i++) {
+// 	const s = 0.02;
+// 	const d = 0.5;
+// 	let rad = 0;
+// 	if (i === 1) {
+// 		rad = d/2;
+// 	} else {
+// 		rad += 0.02;
+// 	}
+// 	let volume = 4/3*Math.PI*rad**3
+// 	res += volume;
+// }
+// console.log(res);
 
