@@ -1,3 +1,5 @@
+'use strict';
+
 let title;
 let rate = 40;
 if(rate >= 40 && rate < 60){
@@ -68,12 +70,17 @@ console.log(herCat);
 herCat.myau();
 myCat.myau();
 
+function getThis(){
+  console.log(`My this is ${this}`);
+}
+getThis();
+
 // console.log(myCat.myau());
 // console.log(user);
-// const dog = {
-//   name: 'Dog',
-//   gav(){
-//     console.log(`${this.name} say gav`);
-//   }
-// }
-// dog.gav();
+const dog = {
+  name: 'Dog',
+  gav(){
+    console.log(`${this} say gav`);
+  }
+}
+dog.gav();

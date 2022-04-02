@@ -63,19 +63,19 @@
 // 	}
 // }
 // printFizzBuzz(50);
-
-// let res = 0;
-// for (let i = 1; i < 20; i++) {
-// 	const s = 0.02;
-// 	const d = 0.5;
-// 	let rad = 0;
-// 	if (i === 1) {
-// 		rad = d/2;
-// 	} else {
-// 		rad += 0.02;
-// 	}
-// 	let volume = 4/3*Math.PI*rad**3
-// 	res += volume;
-// }
-// console.log(res);
+// Get spheres voliume 
+let res = 0;
+for (let i = 1; i < 20; i++) {
+	const s = 0.02;
+	const d = 0.9;
+	let rad = 0;
+	if (i === 1) {
+		rad = d/2;
+	} else {
+		rad += s;
+	}
+	let volume = 4/3*Math.PI*rad**3
+	res += volume;
+}
+console.log(res.toFixed(4.2));
 
