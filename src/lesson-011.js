@@ -1,19 +1,25 @@
 'use strict';
 
-const obj = {
-  fName: 'test'
+const obj = {}
+function counter(){
+  let count = 0;
+  return function(){
+    count++;
+    return count;
+  }
 }
+const counter1 = counter();
+const counter2 = counter();
 
-function logThis(){
-  const logThis1 = () => console.log(this);
-  // console.log(this);
-  return logThis1;
-}
-logThis.call(obj);
-
-const logThis1 = () => console.log(this);
-logThis1();
-const arrow = logThis.call(obj);
-arrow();
-
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+console.log('============');
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
 
