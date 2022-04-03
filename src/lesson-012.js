@@ -1,36 +1,27 @@
 'use strict';
 
-const arr = [1, 'TSP', null, NaN, Infinity, -Infinity, test, {}];
 const obj = {
   fName: 'vasya',
   lName: 'pupkin',
   age: 30,
 }
-console.log(arr);
-console.log(obj);
-let n = arr[5];
-console.log(n);
 
-function test(){
-  return 'test';
+// const numArr = [1,3,7,5,9,12];
+// for (let i = 0; i < numArr.length; i++) {
+//   numArr[i] +=3;
+// }
+// console.log(numArr);
+// const result = [];
+// numArr.forEach((elem) => {
+//   result.push(elem + 10)
+// });
+// console.log(result);
+const words = ['one', 'two','three', 'four', 'five', 'six', 'seven'];
+// words.forEach((word, index) => console.log(`Index of ${word} is ${index}`));
+// ================= 
+function myForEach(arr, callback, thisArg) {
+  for(let i = 0; i < arr.length; i++) {
+    callback.call(thisArg, arr[i], i, arr)
+  }
 }
-const arr1 = Array(20, 10, 'str');
-console.log(arr1);
-const numArr = [1,3,7,5,9,12];
-console.log(numArr.push(14,16));
-console.log(numArr);
-console.log(numArr.unshift(-1, 0));
-console.log(numArr);
-console.log(numArr.pop());
-console.log(numArr);
-console.log(numArr.shift());
-console.log(numArr);
-
-let str2 = arr.join();
-console.log(str2);
-// console.log(arr.reverse());
-console.log(numArr.sort((a, b) => a - b));
-
-const newArr = arr.splice(2, 4, 25, 'Malong', true);
-console.log(newArr);
-console.log(arr);
+myForEach(words, (word, index) => console.log(`Index of ${word} is ${index}`));
