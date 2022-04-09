@@ -1,14 +1,9 @@
 'use strict';
 
-function getArg(a){
-  let arg = arguments;
-  return arg;
-}
-console.log(getArg(1,2,5,6, 'str'));
-const arr = [];
-console.log(arr);
-for (const val of getArg(1,2,5,6, 'ste')) {
+const arr1 = [1, 2, 3, 4];
+arr1.fName = 'Vasya';
+for (const val in arr1) {
   console.log(val);
+  console.log(typeof val);
+
 }
-const arrArg = Array.from(getArg(1,2,5,6, 'str'));
-console.log(arrArg);
