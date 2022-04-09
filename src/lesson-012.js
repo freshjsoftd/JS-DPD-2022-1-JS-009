@@ -43,17 +43,30 @@
 // console.log(myMap(arr1, (elem) => elem/2));
 // console.log(arr1.map((elem) => elem/2));
 
-const numb = [1,2,3,8,9,256,3167];
-console.log(numb.filter((elem) => elem % 2 === 0));
-//  Our implement
-function myFilter(arr, callback, thisArg){
-  const result = [];
+// const numb = [1,2,3,8,9,256,3167];
+// console.log(numb.filter((elem) => elem % 2 === 0));
+// //  Our implement
+// function myFilter(arr, callback, thisArg){
+//   const result = [];
+//   for(let i = 0; i < arr.length; i++){
+//     if(callback.call(thisArg, arr[i], i, arr)){
+//       result.push(arr[i]);
+//     }
+//   }
+//   return result;
+// }
+// const evenArray = myFilter(numb, (elem) => elem % 2 === 0);
+// console.log(evenArray);
+
+const arrNumb = [1,3,8,9];
+console.log(arrNumb.some((elem) => elem % 2 === 0));
+// =================================
+const mySome = (arr, callback, thisArg) => {
   for(let i = 0; i < arr.length; i++){
     if(callback.call(thisArg, arr[i], i, arr)){
-      result.push(arr[i]);
+      return true;
     }
   }
-  return result;
+  return false;
 }
-const evenArray = myFilter(numb, (elem) => elem % 2 === 0);
-console.log(evenArray);
+console.log(mySome(arrNumb, (elem) => elem % 2 === 0));
