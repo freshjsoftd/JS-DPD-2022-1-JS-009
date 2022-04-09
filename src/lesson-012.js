@@ -42,3 +42,18 @@
 // const arr1 = [10,20,30];
 // console.log(myMap(arr1, (elem) => elem/2));
 // console.log(arr1.map((elem) => elem/2));
+
+const numb = [1,2,3,8,9,256,3167];
+console.log(numb.filter((elem) => elem % 2 === 0));
+//  Our implement
+function myFilter(arr, callback, thisArg){
+  const result = [];
+  for(let i = 0; i < arr.length; i++){
+    if(callback.call(thisArg, arr[i], i, arr)){
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+const evenArray = myFilter(numb, (elem) => elem % 2 === 0);
+console.log(evenArray);
