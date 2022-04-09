@@ -58,15 +58,31 @@
 // const evenArray = myFilter(numb, (elem) => elem % 2 === 0);
 // console.log(evenArray);
 
-const arrNumb = [1,3,8,9];
-console.log(arrNumb.some((elem) => elem % 2 === 0));
-// =================================
-const mySome = (arr, callback, thisArg) => {
-  for(let i = 0; i < arr.length; i++){
-    if(callback.call(thisArg, arr[i], i, arr)){
-      return true;
-    }
+// const arrNumb = [1,3,8,9];
+// console.log(arrNumb.some((elem) => elem % 2 === 0));
+// // =================================
+// const mySome = (arr, callback, thisArg) => {
+//   for(let i = 0; i < arr.length; i++){
+//     if(callback.call(thisArg, arr[i], i, arr)){
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+// console.log(mySome(arrNumb, (elem) => elem % 2 === 0));
+
+const matrix = [
+  [0, 1],
+  [2, 3],
+  [4, 5]
+];
+console.log(matrix.reduce((acum, curr) => acum.concat(curr)));
+// impl
+const myReduce = (arr, callback, startValue) => {
+  let result = startValue || [];
+  for (let i = 0; i < arr.length; i++) {
+    result = callback(result, arr[i], i, arr);
   }
-  return false;
+  return result;
 }
-console.log(mySome(arrNumb, (elem) => elem % 2 === 0));
+console.log(myReduce(matrix, (acum, curr) => acum.concat(curr), []));
