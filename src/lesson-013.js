@@ -1,9 +1,18 @@
 'use strict';
 
-const arr1 = [1, 2, 3, 4];
-arr1.fName = 'Vasya';
-for (const val in arr1) {
-  console.log(val);
-  console.log(typeof val);
+const arr = [1, 2, 3, 4, 5, 2, 5, 1];
+const setArr = new Set(arr);
+console.log(arr);
+setArr.add('Donic');
+console.log(setArr.has('Donic'));
+console.log(Array.from(setArr.values()));
 
-}
+const obj = {
+  lName: 'Pup',
+  fName: 'Vas',
+  age: 40,
+  age: 25,
+};
+
+// obj.age = 30;
+console.log(obj);
