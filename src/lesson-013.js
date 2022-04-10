@@ -1,4 +1,5 @@
 'use strict';
+import hiJS from "./lesson-014.js";
 
 const arr = [1, 2, 3, 4, 5, 2, 5, 1];
 const setArr = new Set(arr);
@@ -16,3 +17,4 @@ const obj = {
 
 // obj.age = 30;
 console.log(obj);
+hiJS();
