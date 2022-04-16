@@ -1,87 +1,99 @@
-// 'use strict';
-
-class Transport{
-
-  constructor(brand, model){
-    this.brand = brand;
-    this.model = model;
-  }
-  move(){
-    console.log('I can move');
-  }
-}
-
-class Plaine extends Transport{
-  move(){
-    console.log('I can fly');
-  }
-}
-class Ship extends Transport{
-
-}
-
-
-class Car extends Transport{
-
-  static isCar(obj){
-    return obj instanceof this;
+class MyArrayIterator{
+  constructor(myArray){
+    this.array = myArray;
+    this.count = 0;
   }
 
-  // #price = 1000; 
- constructor(brand, model, price, engineVolume){
-   super(brand, model);
-   this.brand = brand;
-   this.model = model;
-   this.price = price;
-   this.engineVolume = engineVolume;
- }
+  next(){
+    return {
+      value: this.array[this.count++],
+      done: this.count > this.array.length,
+    }
+  }
+}
+class MyArray {
 
- getPrice(){
-   return this.#addPriceUnit();
- }
+	static isMyArray = function (obj) {
+		return obj instanceof this;
+	}
 
- setPrice(price){
-   if(price > 0){
-     this.price = price;
-   }
- }
+	constructor(...args) {
+		this.length = 0;
+		for (let i = 0; i < args.length; i++) {
+			this.push(args[i]);
+		}
+	}
 
- #addPriceUnit(){
-   return `${this.price} $`
- }
+	push(...args) {
+		if (args) {
+			for (let i = 0; i < args.length; i++) {
+				this[this.length++] = args[i];
+			}
+		}
+		return this.length;
+	}
 
- drive(city){
-  console.log(`I drive ${city}`);
- }
+	pop() {
+		if (this.length === 0) {
+			return;
+		}
+		const lastItem = this[this.length - 1];
+		delete this[--this.length];
+		return lastItem;
+	}
 
- move(){
-   super.move()
-   console.log('I can drive');
- }
+	forEach(fn) {
+		for (let i = 0; i < this.length; i++) {
+			fn(this[i], i, this);
+		}
+	}
+	some(fn) {
+		for (let i = 0; i < this.length; i++) {
+			if (fn(this[i], i, this)) {
+				return true;
+			}
+			return false;
+		}
+	}
+
+	every(fn) {
+		for (let i = 0; i < this.length; i++) {
+			if (!fn(this[i], i, this)) {
+				return false;
+			}
+			return true;
+		}
+	}
+
+	map(fn) {
+		const result = [];
+		for (let i = 0; i < this.length; i++) {
+			result.push(fn(this[i], i, this));
+		}
+		return result;
+	}
+
+	filter(fn) {
+		const newArray = [];
+		for (let i = 0; i < this.length; i++) {
+			if (fn(this[i], i, this)) {
+				newArray.push(this[i]);
+			}
+		}
+		return newArray;
+	}
+  [Symbol.iterator](){
+    return new MyArrayIterator(this);
+  }
+
 }
 
-const honda = new Car('Honda', 'CR-V', 42000, 2);
-const toyota = new Car('Toyota', 'Camry', 46000, 2.5);
-const bmw = new Car('BMW', 'X5', 80000, 3.5);
-const audi = new Car('Audi', 'A6', 53000, 3);
+const myArr = new MyArray(1, 2, 5, 9);
 
-const boing = new Plaine('Boing', "747")
+console.log(myArr);
 
-const cars =[honda, toyota, bmw, audi];
-console.log(cars.sort((a, b) => a.price > b.price ? 1 : -1));
+console.log(myArr.map((elem) => elem**2));
+console.log(myArr.filter((elem) => elem % 2 !== 0));
 
-
-console.log(honda);
-
-honda.drive('Kiev');
-
-honda.setPrice(-50000);
-console.log(honda.getPrice());
-audi.move();
-
-console.log(Car.isCar(honda));
-
-console.log(boing);
-
-
-
+const obj = {}
+console.log(MyArray.isMyArray(obj));
