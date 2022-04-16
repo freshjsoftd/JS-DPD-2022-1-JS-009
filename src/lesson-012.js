@@ -79,7 +79,7 @@ const matrix = [
 console.log(matrix.reduce((acum, curr) => acum.concat(curr)));
 // impl
 const myReduce = (arr, callback, startValue) => {
-  let result = startValue || [];
+  let result = startValue || arr[0];
   for (let i = 0; i < arr.length; i++) {
     result = callback(result, arr[i], i, arr);
   }
