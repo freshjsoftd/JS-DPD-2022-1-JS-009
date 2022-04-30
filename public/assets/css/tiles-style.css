@@ -1,0 +1,11 @@
+.tile {
+	height: 100px;
+	width: 25%;
+	float: left;
+	/* border: solid blue 4px; */
+}
+a {
+	min-height: 50px;
+	min-width: 200px;
+	font-size: 40px;
+}
