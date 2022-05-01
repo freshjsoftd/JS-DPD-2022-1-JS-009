@@ -17,6 +17,11 @@ a {
 	border-radius: 10px;
 	display: inline-block;
 }
+button{
+	margin: 10px;
+	min-width: 150px;
+	min-height: 70px;
+}
 input{
   margin: 15px;
   min-width: 400px;

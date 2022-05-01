@@ -8,6 +8,8 @@ const requiredElements = document.getElementsByClassName('required-field');
 const header = document.createElement('header');
 const squadHelpLogoImg = document.createElement('img');
 const loginBtn = document.createElement('button');
+const cancel = document.createElement('button');
+const submit = document.createElement('button');
 const divTitle = document.createElement('div');
 const divFormContainer = document.createElement('div');
 const divInputName = document.createElement('div');
@@ -44,24 +46,24 @@ titleParagraph.textContent =
 	'We always keep your name and email address private.';
 titleParagraph.className = 'title-paragraph';
 // input
-firstNameInput.classList.add('text-type', 'required-field');
-lastNameInput.classList.add('text-type', 'required-field');
-displayNameInput.className = 'text-type';
+firstNameInput.classList.add('text-type', 'required-field', 'collect');
+lastNameInput.classList.add('text-type', 'required-field', 'collect');
+displayNameInput.classList.add('text-type',  'collect') ;
 passwordInput.classList.add('secure', 'required-field');
 passwordConfirmInput.classList.add('secure', 'required-field');
-emailInput.classList.add('email', 'required-field');
+emailInput.classList.add('email', 'required-field', 'text-type', 'collect');
 emailInput.setAttribute('type', 'email');
 divInputName.className = 'input-wrapper';
 divInputEmail.className = 'input-wrapper';
 divInputPassword.className = 'input-wrapper';
 // placeholder
 firstNameInput.setAttribute('placeholder', 'First name');
-firstNameInput.setAttribute('name', 'first-name');
+firstNameInput.setAttribute('name', 'fName');
 // firstNameInput.value = 'My name';
 lastNameInput.setAttribute('placeholder', 'Last name');
-lastNameInput.setAttribute('name', 'last-name');
+lastNameInput.setAttribute('name', 'lName');
 displayNameInput.setAttribute('placeholder', 'Display name');
-displayNameInput.setAttribute('name', 'display-name');
+displayNameInput.setAttribute('name', 'nikName');
 // event with HTML attributes
 // displayNameInput.setAttribute('onblur', 'displayMessage(this)');
 
@@ -71,7 +73,10 @@ passwordInput.setAttribute('placeholder', 'Password');
 passwordInput.setAttribute('name', 'password');
 passwordConfirmInput.setAttribute('placeholder', 'Password Confirmation');
 passwordConfirmInput.setAttribute('name', 'password-confirmation');
-
+cancel.id = 'cancel';
+submit.id = 'submit';
+cancel.textContent = 'Cabcel'
+submit.textContent = 'Submit'
 // set attribute function
 function setMultypleAttrubute(className, attributeName, attributeValue) {
 	const elements = document.getElementsByClassName(className);
@@ -99,6 +104,10 @@ divInputPassword.append(passwordInput, passwordConfirmInput);
 loginForm.appendChild(divInputName);
 loginForm.appendChild(divInputEmail);
 loginForm.appendChild(divInputPassword);
+loginForm.appendChild(cancel)
+loginForm.appendChild(submit)
+
+
 // loginForm.appendChild(emailInput);
 // loginForm.appendChild(passwordInput);
 // loginForm.appendChild(passwordConfirmInput);
@@ -142,5 +151,25 @@ function openWiki (){
   const pop =  open('https://wikipedia.org', '_blank', 'width=400');
 	const timeId = setTimeout(() => pop.close(), 3000);
 }
+class Person {
+  constructor(fName, lName, nikName, email){
+    this.fName = fName;
+    this.lName = lName;
+    this.nikName = nikName;
+		this.email = email;
+  }
+}
+const obj = new Person();
+function collectProps(e){
+	e.preventDefault();
+	const inputCollection = Array.from(document.getElementsByClassName('collect'));
+	console.log(inputCollection);
+	// const values =  inputCollection.map((elem) => elem.value);
+	inputCollection.forEach((elem) => {
+	obj[elem.name] = elem.value;
+	})
+	console.log(obj)
+	localStorage.setItem(`${obj.lName}`, JSON.stringify(obj));
+}
 
-// loginBtn.addEventListener('click', openWiki)
+submit.addEventListener('click', collectProps);
