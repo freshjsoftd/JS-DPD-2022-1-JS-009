@@ -137,5 +137,10 @@ loginForm.addEventListener('focusin', () => fnAlarm.remove());
 
 // displayNameInput.addEventListener('click', (e) => e.target.hidden = true);
 // displayNameInput.addEventListener('click', function(){this.hidden = true});
-console.dir(fnAlarm);
 
+function openWiki (){
+  const pop =  open('https://wikipedia.org', '_blank', 'width=400');
+	const timeId = setTimeout(() => pop.close(), 3000);
+}
+
+// loginBtn.addEventListener('click', openWiki)
