@@ -8,8 +8,6 @@ const requiredElements = document.getElementsByClassName('required-field');
 const header = document.createElement('header');
 const squadHelpLogoImg = document.createElement('img');
 const loginBtn = document.createElement('button');
-const cancel = document.createElement('button');
-const submit = document.createElement('button');
 const divTitle = document.createElement('div');
 const divFormContainer = document.createElement('div');
 const divInputName = document.createElement('div');
@@ -24,6 +22,8 @@ const displayNameInput = document.createElement('input');
 const emailInput = document.createElement('input');
 const passwordInput = document.createElement('input');
 const passwordConfirmInput = document.createElement('input');
+const cancel = document.createElement('button');
+const submit = document.createElement('button');
 // update elements
 // header
 header.className = 'header';
@@ -58,10 +58,10 @@ divInputEmail.className = 'input-wrapper';
 divInputPassword.className = 'input-wrapper';
 // placeholder
 firstNameInput.setAttribute('placeholder', 'First name');
-firstNameInput.setAttribute('name', 'fName');
+firstNameInput.setAttribute('name', 'firstName');
 // firstNameInput.value = 'My name';
 lastNameInput.setAttribute('placeholder', 'Last name');
-lastNameInput.setAttribute('name', 'lName');
+lastNameInput.setAttribute('name', 'lastName');
 displayNameInput.setAttribute('placeholder', 'Display name');
 displayNameInput.setAttribute('name', 'nikName');
 // event with HTML attributes
@@ -73,10 +73,45 @@ passwordInput.setAttribute('placeholder', 'Password');
 passwordInput.setAttribute('name', 'password');
 passwordConfirmInput.setAttribute('placeholder', 'Password Confirmation');
 passwordConfirmInput.setAttribute('name', 'password-confirmation');
+
+function createRadioInput(tag, attrId, attrName, attrType) {
+	tag.setAttribute('id', attrId);
+	tag.setAttribute('name', attrName);
+	tag.setAttribute('type', attrType);
+}
+
+const wrapForInputRadio1 = document.createElement('div');
+wrapForInputRadio1.classList.add('wrap-radio-input');
+const inputRadio1 = document.createElement('input');
+createRadioInput(inputRadio1, `join-buyer`, `join-to-us`, `radio`);
+const labelForRadio1 = document.createElement('label');
+labelForRadio1.setAttribute('for', 'join-buyer');
+labelForRadio1.innerText = 'Join As a Buyer';
+const spanForRadio1 = document.createElement('span');
+spanForRadio1.textContent = 'I am looking for a Name, Logo or Tagline for my business, brand or product.';
+const innerWrapForInputRadio1 = document.createElement('div');
+wrapForInputRadio1.append(inputRadio1, innerWrapForInputRadio1);
+innerWrapForInputRadio1.append(labelForRadio1, spanForRadio1);
+
+const wrapForInputRadio2 = document.createElement('div');
+wrapForInputRadio2.classList.add('wrap-radio-input');
+const inputRadio2 = document.createElement('input');
+createRadioInput(inputRadio2, `join-seller`, `join-to-us`, `radio`);
+const labelForRadio2 = document.createElement('label');
+labelForRadio2.setAttribute('for', 'join-seller');
+labelForRadio2.innerText = 'Join As a Creative or Marketplace Seller ';
+const spanForRadio2 = document.createElement('span');
+spanForRadio2.textContent = 'I plan to submit name ideas, Logo designs or sell names in Domain Marketplace.';
+const innerWrapForInputRadio2 = document.createElement('div');
+wrapForInputRadio2.append(inputRadio2, innerWrapForInputRadio2);
+innerWrapForInputRadio2.append(labelForRadio2, spanForRadio2);
+
+
 cancel.id = 'cancel';
 submit.id = 'submit';
-cancel.textContent = 'Cabcel'
+cancel.textContent = 'Cancel'
 submit.textContent = 'Submit'
+
 // set attribute function
 function setMultypleAttrubute(className, attributeName, attributeValue) {
 	const elements = document.getElementsByClassName(className);
@@ -104,9 +139,10 @@ divInputPassword.append(passwordInput, passwordConfirmInput);
 loginForm.appendChild(divInputName);
 loginForm.appendChild(divInputEmail);
 loginForm.appendChild(divInputPassword);
+loginForm.appendChild(wrapForInputRadio1);
+loginForm.appendChild(wrapForInputRadio2);
 loginForm.appendChild(cancel)
 loginForm.appendChild(submit)
-
 
 // loginForm.appendChild(emailInput);
 // loginForm.appendChild(passwordInput);
@@ -138,38 +174,39 @@ loginForm.addEventListener('focusout', (event) => {
 		event.target.classList.contains('required-field')
 	) {
 		loginForm.insertBefore(fnAlarm, nextElement);
-		// divInputName.appendChild(fnAlarm);
 	} 
 });
 
 loginForm.addEventListener('focusin', () => fnAlarm.remove());
 
-// displayNameInput.addEventListener('click', (e) => e.target.hidden = true);
-// displayNameInput.addEventListener('click', function(){this.hidden = true});
-
-function openWiki (){
-  const pop =  open('https://wikipedia.org', '_blank', 'width=400');
-	const timeId = setTimeout(() => pop.close(), 3000);
-}
 class Person {
-  constructor(fName, lName, nikName, email){
-    this.fName = fName;
-    this.lName = lName;
+  constructor(firstName, lastName, nikName, email){
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.nikName = nikName;
 		this.email = email;
   }
 }
-const obj = new Person();
+const arrObjects = [];
+
 function collectProps(e){
+
+	const user = new Person();
 	e.preventDefault();
 	const inputCollection = Array.from(document.getElementsByClassName('collect'));
 	console.log(inputCollection);
 	// const values =  inputCollection.map((elem) => elem.value);
 	inputCollection.forEach((elem) => {
-	obj[elem.name] = elem.value;
+	user[elem.name] = elem.value;
 	})
-	console.log(obj)
-	localStorage.setItem(`${obj.lName}`, JSON.stringify(obj));
+	arrObjects.push(user);
+
+	// localStorage.setItem(`${user.lastName}`, JSON.stringify(user));
+	localStorage.setItem(`users`, JSON.stringify(arrObjects));
 }
 
 submit.addEventListener('click', collectProps);
+const pup = JSON.parse(localStorage.getItem('Pupkin'))
+
+// displayNameInput.addEventListener('click', (e) => e.target.hidden = true);
+// displayNameInput.addEventListener('click', function(){this.hidden = true});

@@ -1,6 +1,9 @@
 :root {
 	--main-color: #4bf;
 }
+*{
+	font-size: 30px;
+}
 body {
 	background-color: var(--main-color);
 	font-size: 30px;
@@ -17,11 +20,13 @@ a {
 	border-radius: 10px;
 	display: inline-block;
 }
+
 button{
 	margin: 10px;
 	min-width: 150px;
 	min-height: 70px;
 }
+
 input{
   margin: 15px;
   min-width: 400px;
@@ -103,6 +108,37 @@ input{
 	display: flex;
   flex-wrap: wrap;
 	gap: 15px;
+}
+.wrap-radio-input {
+	/* width: 100%; */
+	min-width: 800px;
+	min-height: 50px;
+	max-height: 150px;
+	border: 1px solid #fff;
+	display: flex;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+input[type=radio],
+input[type=checkbox] {
+	min-height: 20px;
+	min-width: 20px;
+	width: auto;
+	margin-right: 15px;
+}
+
+.wrap-radio-input label {
+	display: block;
+	font-size: 22px;
+	margin-bottom: 5px;
+	color: white;
+}
+
+.wrap-radio-input span {
+	display: block;
+	font-size: 20px;
+	color: white;
 }
 
 #login-btn {
