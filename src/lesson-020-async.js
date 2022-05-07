@@ -6,10 +6,10 @@ fetch(myRequest)
         if(response.ok){
           console.log('Ok');
         }
-        response.json()
+        return response.json();
       })
       .then((jsonResponse) => localStorage.setItem('todos', JSON.stringify(jsonResponse)))
 
-// const todos = JSON.parse(localStorage.getItem('todos'));
-// console.log(todos);
+const todos = JSON.parse(localStorage.getItem('todos'));
+console.log(todos);
 
