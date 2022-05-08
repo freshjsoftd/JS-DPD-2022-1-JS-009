@@ -1,0 +1,39 @@
+body{
+  font-size: 30px;
+}
+h1{
+  margin: 10px;
+  text-align: center;
+  /* display: block; */
+}
+
+.buy-sale{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.container{
+  margin: auto;
+}
+.currency{
+  display: flex;
+}
+.currency-choice{
+  display: flex;
+  flex-direction: column;
+}
+.date{
+  font-weight: bold;
+  font-size: 35px;
+  color: blue;
+}
+.input-field{
+  margin: 20px;
+  min-height: 50px;
+  min-width: 250px;
+  font-size: 40px;
+}
+.subtitle{
+  text-align: center;
+  font-size: 35px;
+}

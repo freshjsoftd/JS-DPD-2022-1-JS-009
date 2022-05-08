@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/currency.css">
+  <script defer src="../src/lesson-021-task.js"></script>
+  <title>Currency</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Курс валют Приват банка</h1>
+      <p class="subtitle">На сегодня<span class="date"> 20</span></p>
+    </header>
+    <section class="main">
+      <form class="currency">
+          <div class="buy-sale">
+            <div class="currency-choice">
+              <div class="currency-radio">
+                <input type="radio" name="curr" id="usd" value="usd">
+                <label for="usd">USD</label>
+              </div>
+              <div class="currency-radio">
+                <input type="radio" name="curr" id="euro" value="eur">
+                <label for="euro">Euro</label>
+              </div>
+              <div class="currency-radio">
+                <input type="radio" name="curr" id="btc" value="btc">
+                <label for="euro">BTC</label>
+              </div>
+            </div>
+            <div class="buy">
+            <input type="text" id="input-buy" class="input-field">
+          </div>
+          <div class="sale">
+            <input type="text" id="input-sale" class="input-field">
+          </div>
+          </div>
+        </div>
+      </form>
+      <a href="../public/index.html">Return</a>
+    </section>
+  </div>
+</body>
+</html>
