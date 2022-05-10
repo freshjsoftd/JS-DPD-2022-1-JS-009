@@ -10,22 +10,25 @@ h1{
 .buy-sale{
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .container{
   margin: auto;
 }
 .convert-container{
   margin: auto;
+  margin-top: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
+
 .currency{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .currency-choice{
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
@@ -36,9 +39,14 @@ h1{
 }
 .equal{
   margin: 20px;
+  /* margin-left: 50px; */
   min-width: 100px;
-  max-height: 50px;
+  max-height: 60px;
+  font-size: 45px;
+  font-weight: bold;
+  color: red;
 }
+
 .input-field{
   margin: 20px;
   min-height: 50px;
@@ -48,4 +56,17 @@ h1{
 .subtitle{
   text-align: center;
   font-size: 35px;
+}
+#input-aim,
+#input-src{
+  min-width:300px;
+  max-width: 350px
+}
+#input-src{
+  /* margin-right: 50px; */
+  margin-left: 70px;
+}
+#input-aim{
+  /* margin-left: 50px; */
+  margin-right: 70px;
 }
