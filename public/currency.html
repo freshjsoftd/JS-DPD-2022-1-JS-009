@@ -12,7 +12,7 @@
   <div class="container">
     <header class="header">
       <h1 class="title">Курс валют Приват банка</h1>
-      <p class="subtitle">На сегодня<span class="date"> 20</span></p>
+      <p class="subtitle">На сегодня<span class="date"> _</span></p>
     </header>
     <section class="main">
       <form class="currency">
@@ -28,15 +28,60 @@
               </div>
               <div class="currency-radio">
                 <input type="radio" name="curr" id="btc" value="btc">
-                <label for="euro">BTC</label>
+                <label for="btc">BTC</label>
               </div>
             </div>
             <div class="buy">
             <input type="text" id="input-buy" class="input-field">
+            </div>
+            <div class="sale">
+              <input type="text" id="input-sale" class="input-field">
+            </div>
           </div>
-          <div class="sale">
-            <input type="text" id="input-sale" class="input-field">
-          </div>
+          <div class="convert-container">
+            <div class="convert-curr-choice-left">
+              <div class="convert-radio-left">
+                <input type="radio" name="conv-left" id="usd-cl" value="usd">
+                <label for="usd-cl">USD</label>
+              </div>
+              <div class="convert-radio-left">
+                <input type="radio" name="conv-left" id="euro-cl" value="eur">
+                <label for="euro-cl">Euro</label>
+              </div>
+              <div class="convert-radio-left">
+                <input type="radio" name="conv-left" id="btc-cl" value="btc">
+                <label for="btc-cl">BTC</label>
+              </div>
+              <div class="convert-radio-left">
+                <input type="radio" name="conv-left" id="uah-cl" value="uah">
+                <label for="uah-cl">UAH</label>
+              </div>
+            </div>
+            <div class="curr-src">
+              <input type="text" id="input-src" class="input-field">
+              </div>
+              <button class="equal">=</button>
+              <div class="curr-aim">
+                <input type="text" id="input-aim" class="input-field">
+              </div>
+              <div class="convert-curr-choice-right">
+                <div class="convert-radio-right">
+                  <input type="radio" name="conv-right" id="usd-cr" value="usd">
+                  <label for="usd-cr">USD</label>
+                </div>
+                <div class="convert-radio-right">
+                  <input type="radio" name="conv-right" id="euro-cr" value="eur">
+                  <label for="euro-cr">Euro</label>
+                </div>
+                <div class="convert-radio-right">
+                  <input type="radio" name="conv-right" id="btc-cr" value="btc">
+                  <label for="btc-cr">BTC</label>
+                </div>
+                <div class="convert-radio-right">
+                  <input type="radio" name="conv-right" id="uah-cr" value="uah">
+                  <label for="uah-cr">UAH</label>
+                </div>
+              </div>
           </div>
         </div>
       </form>

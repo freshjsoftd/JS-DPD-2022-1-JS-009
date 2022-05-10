@@ -10,13 +10,20 @@ h1{
 .buy-sale{
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .container{
   margin: auto;
 }
+.convert-container{
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
 .currency{
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .currency-choice{
   display: flex;
@@ -25,7 +32,12 @@ h1{
 .date{
   font-weight: bold;
   font-size: 35px;
-  color: blue;
+  color: red;
+}
+.equal{
+  margin: 20px;
+  min-width: 100px;
+  max-height: 50px;
 }
 .input-field{
   margin: 20px;

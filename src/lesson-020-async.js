@@ -23,13 +23,17 @@
 //   })
 // }
 const button = document.querySelector('button');
+console.log(button);
+const date = new Date().toLocaleDateString('uk');
+console.log(date);
+button.textContent = date
 async function asyncFetch() {
 	try {
 		const response = await fetch(
 			'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5'
 		);
 		const currency = await response.json();
-		localStorage.setItem('currency', JSON.stringify(currency));
+		localStorage.setItem(date, JSON.stringify(currency));
 		console.log(currency);
 	} catch (error) {
 		console.log(error.name);
@@ -39,8 +43,6 @@ async function asyncFetch() {
 	}
 }
 // asyncFetch();
+
 button.addEventListener('click', asyncFetch);
 // localStorage.clear();
-const date = new Date().toLocaleDateString('us');
-console.log(date);
-button.textContent = date
