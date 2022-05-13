@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+  font-size: 30px;
+}
+body {
+  background-color: teal;
+}
+h1{
+  font-size: 50px;
+  color: antiquewhite;
+}
+.container{
+  margin: 20px;
+  text-align: center;
+}
+.flag{
+  margin: 10px;
+  width: 300px;
+  height: 200px;
+  border: 4px solid blue;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.flag>img{
+  width: 300px;
+  height: 200px;
+  object-fit: fill;
+  object-position: 1% 1%; 
+}
+.input-container{
+  display: flex;
+  flex: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.lider-name{
+  height: 100px;
+}

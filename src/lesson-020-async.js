@@ -40,8 +40,8 @@ async function asyncFetch() {
 	}
 }
 // asyncFetch();
-const date = new Date().toLocaleDateString('uk');
-console.log(date);
-button.textContent = date
-button.addEventListener('click', asyncFetch);
+// const date = new Date().toLocaleDateString('uk');
+// console.log(date);
+// button.textContent = date
+// button.addEventListener('click', asyncFetch);
 // localStorage.clear();
