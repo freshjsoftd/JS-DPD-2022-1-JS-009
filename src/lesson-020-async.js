@@ -22,26 +22,47 @@
 //     resolve(result);
 //   })
 // }
-const button = document.querySelector('button');
-console.log(button);
+// const button = document.querySelector('button');
+// console.log(button);
 async function asyncFetch() {
-	try {
-		const response = await fetch(
-			'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5'
-		);
-		const currency = await response.json();
-		localStorage.setItem('currency', JSON.stringify(currency));
-		console.log(currency);
-	} catch (error) {
-		console.log(error.name);
-		console.log(error.message);
-	} finally {
-		console.log('Hello');
+	const url2 = 'https://api.privatbank.ua/p24api/pboffice?json&city=Днепропетровск&address=Карла Маркса';
+	const headers = new Headers();
+	headers.append('Accept', 'application/json');
+	headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+	const mode = 'no-cors';
+
+	const init = {
+		method: 'GET',
+		headers: headers,
+		mode: mode,
+		credentials: 'same-origin',
 	}
+	const request = new Request(url2, init);
+	try {
+		const response = await fetch(request);
+		if(!response.ok) throw new Error(response.statusText);
+		const officies = await response.json();
+		localStorage.setItem('officies', JSON.stringify(officies));
+		console.log(officies);
+	} catch (error) {
+		console.log(error);
+	} 
 }
-// asyncFetch();
+asyncFetch();
 // const date = new Date().toLocaleDateString('uk');
 // console.log(date);
 // button.textContent = date
 // button.addEventListener('click', asyncFetch);
 // localStorage.clear();
+
+// {
+//   "name": "Филиал \"Запорожское РУ\", Преображенское отделение",
+//   "state": "Запорожская",
+//   "id": "1591",
+//   "country": "Украина",
+//   "city": "Запорожье",
+//   "index": "69035",
+//   "phone": "8(061) 213-09-18, 289-85-25",
+//   "email": "julija.tjuleneva@pbank.com.ua",
+//   "address": "ул Мира 10"
+// }
